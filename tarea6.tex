@@ -38,9 +38,10 @@
         \item {
             Para cada 	$ANF_{\epsilon}$, resuelve los siguientes incisos.
             \begin{enumerate}
-                \item Calcula la $\epsilon$-cerradura de cada estado.\\
+                \item Calcula la $\epsilon$-cerradura de cada estado.
                 
-                \item Elimina las $\epsilon$-transiciones obteniendo un AFN, mostrando el proceso de cálculo de las nuevas transiciones.\\
+				\item Elimina las $\epsilon$-transiciones obteniendo un AFN, 
+				mostrando el proceso de cálculo de las nuevas transiciones.
             \end{enumerate}
         }
        \end{enumerate}
@@ -150,7 +151,139 @@
     				\draw (46.2,-45.45) node [right] {$b$};
     				\end{tikzpicture}
     		\end{figure}
+    		\begin{enumerate}
+    			\item {
+    				Calcula la $\epsilon$-cerradura de cada estado
+    				\begin{align*}
+    					Cl_{\epsilon}(q_{0}) &= \{q_{0}, q_{5}, q_{6}\}
+    					&Cl_{\epsilon}(q_{1}) &= \{q_{1}\} \\
+    					Cl_{\epsilon}(q_{2}) &= \{q_{2}, q_{5}, q_{6}\}
+    					&Cl_{\epsilon}(q_{3}) &= \{q_{3}\} \\
+    					Cl_{\epsilon}(q_{4}) &= \{q_{4}\}
+    					&Cl_{\epsilon}(q_{5}) &= \{q_{5}, q_{6}\} \\
+    					Cl_{\epsilon}(q_{6}) &= \{q_{6}\}
+    					&Cl_{\epsilon}(q_{7}) &= \{q_{7}\} \\
+    					Cl_{\epsilon}(q_{8}) &= \{q_{8}\}
+    					&Cl_{\epsilon}(q_{9}) &= \{q_{9}, q_{10}\} \\
+    					Cl_{\epsilon}(q_{10}) &= \{q_{10}\} 
+    				\end{align*}
+				}
+				\item {
+					Elimina las $\epsilon$-transiciones obteniendo un AFN, 
+					mostrando el proceso de cálculo de las nuevas transiciones.\\
+					Sea $M_{\epsilon} = \langle Q_{\epsilon}, \Sigma_{\epsilon},
+					 \delta_{\epsilon}, q_{0\epsilon}, F_{\epsilon} \rangle$ el atómata de la figura.\\
+					El nuevo automata sería $M = \langle Q, \Sigma, \delta, 
+					q_{0}, F \rangle$ dado por 
+					\[\ Q = Q_{\epsilon},\ \Sigma = \Sigma_{\epsilon},
+					\ q_0 = q_{0\epsilon},\ F = F_{\epsilon}\]
+					Pues $F_{\epsilon} \cap Cl_{\epsilon}(q_{0}) = \varnothing$.\\
+					En cuento a la $\delta$, esta se construye de la siguiente 
+					manera
+					\begin{align*}
+						\delta(q_{0}, a) &= \delta^{*}_{\epsilon}(q_{0}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{0}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{0}, a) 
+						\cup \delta_{\epsilon}(q_{5}, a)
+						\cup \delta_{\epsilon}(q_{6}, a))\\
+						&= Cl_{\epsilon}(\{q_{4}\} \cup \varnothing \cup \varnothing)\\
+						&= \{q_{4}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{0}, b) &= \delta^{*}_{\epsilon}(q_{0}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{0}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{0}, b) 
+						\cup \delta_{\epsilon}(q_{5}, b)
+						\cup \delta_{\epsilon}(q_{6}, b))\\
+						&= Cl_{\epsilon}(\{q_{1}\} \cup \varnothing \cup \{q_{8}\})\\
+						&= \{q_{1}, q_{8}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{1}, a) &= \delta^{*}_{\epsilon}(q_{1}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{1}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{1}, a))\\
+						&= Cl_{\epsilon}(\{q_{2}, q_{3}\})\\
+						&= \{q_{2}, q_{3}, q_{5}, q_{6}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{1}, b) &= \delta^{*}_{\epsilon}(q_{1}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{1}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{1}, b)) \\
+						&= Cl_{\epsilon}(\varnothing) \\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{2}, a) &= \delta^{*}_{\epsilon}(q_{2}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{2}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{2}, a) 
+						\cup \delta_{\epsilon}(q_{5}, a)
+						\cup \delta_{\epsilon}(q_{6}, a))\\
+						&= Cl_{\epsilon}(\varnothing \cup \varnothing \cup \varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{2}, b) &= \delta^{*}_{\epsilon}(q_{2}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{2}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{2}, b) 
+						\cup \delta_{\epsilon}(q_{5}, b)
+						\cup \delta_{\epsilon}(q_{6}, b))\\
+						&= Cl_{\epsilon}(\varnothing \cup \varnothing \cup \{q_{8}\})\\
+						&= \{q_{8}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{3}, a) &= \delta^{*}_{\epsilon}(q_{3}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{3}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{3}, a))\\
+						&= Cl_{\epsilon}(\varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{3}, b) &= \delta^{*}_{\epsilon}(q_{3}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{3}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{3}, b))\\
+						&= Cl_{\epsilon}(\varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{4}, a) &= \delta^{*}_{\epsilon}(q_{4}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{4}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{4}, a) 
+						\cup \delta_{\epsilon}(q_{5}, a)
+						\cup \delta_{\epsilon}(q_{6}, a))\\
+						&= Cl_{\epsilon}(\{q_{4}\} \cup \varnothing \cup \varnothing)\\
+						&= \{q_{4}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{4}, b) &= \delta^{*}_{\epsilon}(q_{4}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{4}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{4}, b) 
+						\cup \delta_{\epsilon}(q_{5}, b)
+						\cup \delta_{\epsilon}(q_{6}, b))\\
+						&= Cl_{\epsilon}(\{q_{1}\} \cup \varnothing \cup \{q_{8}\})\\
+						&= \{q_{1}, q_{8}\}
+					\end{align*}
+
+				}
+    		\end{enumerate}
     	}
-    
     \end{enumerate}
 \end{document}
