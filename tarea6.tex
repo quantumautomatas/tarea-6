@@ -419,7 +419,30 @@
     				\fill [black] (45.7,-47.6) -- (46.2,-46.8) -- (45.2,-46.8);
     				\draw (46.2,-45.45) node [right] {$b$};
     				\end{tikzpicture}
-    		\end{figure}
+    		\caption{Autómata M}
+    	\end{figure}
+    
+La función de transición $\delta$ definida con la siguiente tabla:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|}
+	\hline
+	q  & $\delta_{N} (q,a)$ & $\delta_{N} (q,b)$ & $\delta_{N} (q,\epsilon)$ \\ \hline
+	0  & $\{4\}$            & $\{1\}$            & $\{5, 6\}$                \\ \hline
+	1  & $\{2, 3\}$         & $\varnothing$      & $\varnothing$             \\ \hline
+	2  & $\varnothing$            & $\varnothing$      & $\{5, 6\}$                \\ \hline
+	3  & $\varnothing$      & $\varnothing$      & $\varnothing$             \\ \hline
+	4  & $\varnothing$      & $\{7\}$            & $\varnothing$             \\ \hline
+	5  & $\varnothing$      & $\varnothing$      & $\{6\}$                   \\ \hline
+	6  & $\varnothing$      & $\{8\}$            & $\varnothing$             \\ \hline
+	7  & $\{9\}$            & $\varnothing$      & $\varnothing$             \\ \hline
+	8  & $\varnothing$      & $\{10\}$           & $\varnothing$             \\ \hline
+	9  & $\varnothing$      & $\varnothing$      & $\{10\}$                  \\ \hline
+	10 & $\varnothing$      & $\varnothing$      & $\varnothing$             \\ \hline
+\end{tabular}
+\end{table}
+    		
     		\begin{enumerate}
     			\item {
     				Calcula la $\epsilon$-cerradura de cada estado
@@ -442,8 +465,8 @@
 					mostrando el proceso de cálculo de las nuevas transiciones.\\
 					Sea $M_{\epsilon} = \langle Q_{\epsilon}, \Sigma_{\epsilon},
 					\delta_{\epsilon}, q_{0\epsilon}, F_{\epsilon} \rangle$ el 
-					atómata de la figura.\\
-					El nuevo automata sería $M = \langle Q, \Sigma, \delta, 
+					autómata de la figura.\\
+					El nuevo autómata sería $M = \langle Q, \Sigma, \delta, 
 					q_{0}, F \rangle$ dado por 
 					\[\ Q = Q_{\epsilon},\ \Sigma = \Sigma_{\epsilon},
 					\ q_0 = q_{0\epsilon},\ F = F_{\epsilon}\]
@@ -659,6 +682,108 @@
 						&= Cl_{\epsilon}(\varnothing)\\
 						&= \varnothing
 					\end{align*}
+				
+				Podemos resumirlo en la siguiente tabla:\\
+				
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|l|l|l|}
+						\hline
+						q  & $\delta_{N} (q,a)$ & $\delta_{N} (q,b)$ \\ \hline
+						0  & $\{4\}$            & $\{1, 8\}$         \\ \hline
+						1  & $\{2, 3, 5, 6\}$   & $\varnothing$      \\ \hline
+						2  & $\varnothing$      & $\{8\}$            \\ \hline
+						3  & $\varnothing$      & $\varnothing$      \\ \hline
+						4  & $\varnothing$      & $\{7\}$            \\ \hline
+						5  & $\varnothing$      & $\{8\}$            \\ \hline
+						6  & $\varnothing$      & $\{8\}$            \\ \hline
+						7  & $\{9, 10\}$        & $\varnothing$      \\ \hline
+						8  & $\varnothing$      & $\{10\}$           \\ \hline
+						9  & $\varnothing$      & $\varnothing$      \\ \hline
+						10 & $\varnothing$      & $\varnothing$      \\ \hline
+					\end{tabular}
+				\end{table}
+				
+				$  $\\[.3cm]
+				
+				Y visto de forma gráfica, AFN es:\\
+				
+					\begin{figure}[H]
+						\centering
+					\begin{tikzpicture}[scale=0.2]
+					\tikzstyle{every node}+=[inner sep=0pt]
+					\draw [black] (12.3,-11.4) circle (3);
+					\draw (12.3,-11.4) node {$qo$};
+					\draw [black] (12.3,-23.1) circle (3);
+					\draw (12.3,-23.1) node {$q4$};
+					\draw [black] (12.3,-36.7) circle (3);
+					\draw (12.3,-36.7) node {$q7$};
+					\draw [black] (12.3,-50.6) circle (3);
+					\draw (12.3,-50.6) node {$q9$};
+					\draw [black] (45.7,-11.4) circle (3);
+					\draw (45.7,-11.4) node {$q1$};
+					\draw [black] (59.8,-17.3) circle (3);
+					\draw (59.8,-17.3) node {$q3$};
+					\draw [black] (36.6,-19) circle (3);
+					\draw (36.6,-19) node {$q2$};
+					\draw [black] (45.7,-22.5) circle (3);
+					\draw (45.7,-22.5) node {$q5$};
+					\draw [black] (55.7,-26.8) circle (3);
+					\draw (55.7,-26.8) node {$q6$};
+					\draw [black] (36.6,-38.7) circle (3);
+					\draw (36.6,-38.7) node {$q8$};
+					\draw [black] (40.1,-49.7) circle (3);
+					\draw (40.1,-49.7) node {$q10$};
+					\draw [black] (40.1,-49.7) circle (2.4);
+					\draw [black] (12.3,-39.7) -- (12.3,-47.6);
+					\fill [black] (12.3,-47.6) -- (12.8,-46.8) -- (11.8,-46.8);
+					\draw (11.8,-43.65) node [left] {$a$};
+					\draw [black] (43.4,-13.32) -- (38.9,-17.08);
+					\fill [black] (38.9,-17.08) -- (39.84,-16.95) -- (39.2,-16.18);
+					\draw (40.04,-14.71) node [above] {$a$};
+					\draw [black] (48.47,-12.56) -- (57.03,-16.14);
+					\fill [black] (57.03,-16.14) -- (56.49,-15.37) -- (56.1,-16.29);
+					\draw (53.81,-13.83) node [above] {$a$};
+					\draw [black] (6.5,-11.4) -- (9.3,-11.4);
+					\draw (6,-11.4) node [left] {$start$};
+					\fill [black] (9.3,-11.4) -- (8.5,-10.9) -- (8.5,-11.9);
+					\draw [black] (53.15,-28.39) -- (39.15,-37.11);
+					\fill [black] (39.15,-37.11) -- (40.09,-37.11) -- (39.56,-36.27);
+					\draw (47.3,-33.25) node [below] {$b$};
+					\draw [black] (15.3,-11.4) -- (42.7,-11.4);
+					\fill [black] (42.7,-11.4) -- (41.9,-10.9) -- (41.9,-11.9);
+					\draw (29,-10.9) node [above] {$b$};
+					\draw [black] (12.3,-26.1) -- (12.3,-33.7);
+					\fill [black] (12.3,-33.7) -- (12.8,-32.9) -- (11.8,-32.9);
+					\draw (11.8,-29.9) node [left] {$b$};
+					\draw [black] (12.3,-14.4) -- (12.3,-20.1);
+					\fill [black] (12.3,-20.1) -- (12.8,-19.3) -- (11.8,-19.3);
+					\draw (11.8,-17.25) node [left] {$a$};
+					\draw [black] (37.51,-41.56) -- (39.19,-46.84);
+					\fill [black] (39.19,-46.84) -- (39.42,-45.93) -- (38.47,-46.23);
+					\draw (39.12,-43.54) node [right] {$b$};
+					\draw [black] (14.29,-13.64) -- (34.61,-36.46);
+					\fill [black] (34.61,-36.46) -- (34.45,-35.53) -- (33.7,-36.19);
+					\draw (23.91,-26.5) node [left] {$b$};
+					\draw [black] (45.7,-14.4) -- (45.7,-19.5);
+					\fill [black] (45.7,-19.5) -- (46.2,-18.7) -- (45.2,-18.7);
+					\draw (45.2,-16.95) node [left] {$a$};
+					\draw [black] (47.33,-13.92) -- (54.07,-24.28);
+					\fill [black] (54.07,-24.28) -- (54.05,-23.34) -- (53.21,-23.89);
+					\draw (51.32,-17.78) node [right] {$a$};
+					\draw [black] (36.6,-22) -- (36.6,-35.7);
+					\fill [black] (36.6,-35.7) -- (37.1,-34.9) -- (36.1,-34.9);
+					\draw (36.1,-28.85) node [left] {$b$};
+					\draw [black] (44.23,-25.12) -- (38.07,-36.08);
+					\fill [black] (38.07,-36.08) -- (38.9,-35.63) -- (38.03,-35.14);
+					\draw (40.49,-29.39) node [left] {$b$};
+					\draw [black] (15.02,-37.97) -- (37.38,-48.43);
+					\fill [black] (37.38,-48.43) -- (36.87,-47.64) -- (36.45,-48.54);
+					\draw (25.12,-43.71) node [below] {$a$};
+					\end{tikzpicture}
+					\caption{El autómata $M_{N}$}
+				\end{figure}
+
 
 				}
     		\end{enumerate}
