@@ -533,22 +533,56 @@
 						\delta(q_{4}, a) &= \delta^{*}_{\epsilon}(q_{4}, a) \\
 						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{4}, \epsilon)}
 						{\delta_{\epsilon}(p, a)}) \\
-						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{4}, a) 
-						\cup \delta_{\epsilon}(q_{5}, a)
-						\cup \delta_{\epsilon}(q_{6}, a))\\
-						&= Cl_{\epsilon}(\{q_{4}\} \cup \varnothing \cup \varnothing)\\
-						&= \{q_{4}\}
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{4}, a))\\
+						&= Cl_{\epsilon}(\varnothing)\\
+						&= \varnothing
 					\end{align*}
 
 					\begin{align*}
 						\delta(q_{4}, b) &= \delta^{*}_{\epsilon}(q_{4}, b) \\
 						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{4}, \epsilon)}
 						{\delta_{\epsilon}(p, b)}) \\
-						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{4}, b) 
-						\cup \delta_{\epsilon}(q_{5}, b)
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{4}, b))\\
+						&= Cl_{\epsilon}(\{q_{7}\})\\
+						&= \{q_{7}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{5}, a) &= \delta^{*}_{\epsilon}(q_{5}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{5}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{5}, a)
+						\cup \delta_{\epsilon}(q_{6}, a))\\
+						&= Cl_{\epsilon}(\varnothing \cup \varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{5}, b) &= \delta^{*}_{\epsilon}(q_{5}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{5}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{5}, b) 
 						\cup \delta_{\epsilon}(q_{6}, b))\\
-						&= Cl_{\epsilon}(\{q_{1}\} \cup \varnothing \cup \{q_{8}\})\\
-						&= \{q_{1}, q_{8}\}
+						&= Cl_{\epsilon}(\varnothing \cup \{q_{8}\})\\
+						&= \{q_{8}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{6}, a) &= \delta^{*}_{\epsilon}(q_{6}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{6}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{6}, a))\\
+						&= Cl_{\epsilon}(\varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{6}, b) &= \delta^{*}_{\epsilon}(q_{6}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{6}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{6}, b))\\
+						&= Cl_{\epsilon}(\{q_{8}\})\\
+						&= \{q_{8}\}
 					\end{align*}
 
 				}
