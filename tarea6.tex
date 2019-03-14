@@ -441,7 +441,8 @@
 					Elimina las $\epsilon$-transiciones obteniendo un AFN, 
 					mostrando el proceso de cálculo de las nuevas transiciones.\\
 					Sea $M_{\epsilon} = \langle Q_{\epsilon}, \Sigma_{\epsilon},
-					 \delta_{\epsilon}, q_{0\epsilon}, F_{\epsilon} \rangle$ el atómata de la figura.\\
+					\delta_{\epsilon}, q_{0\epsilon}, F_{\epsilon} \rangle$ el 
+					atómata de la figura.\\
 					El nuevo automata sería $M = \langle Q, \Sigma, \delta, 
 					q_{0}, F \rangle$ dado por 
 					\[\ Q = Q_{\epsilon},\ \Sigma = \Sigma_{\epsilon},
@@ -583,6 +584,80 @@
 						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{6}, b))\\
 						&= Cl_{\epsilon}(\{q_{8}\})\\
 						&= \{q_{8}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{7}, a) &= \delta^{*}_{\epsilon}(q_{7}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{7}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{7}, a))\\
+						&= Cl_{\epsilon}(\{q_{9}\})\\
+						&= \{q_{9}, q_{10}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{7}, b) &= \delta^{*}_{\epsilon}(q_{7}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{7}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{7}, b))\\
+						&= Cl_{\epsilon}(\varnothing)\\
+						&= \varnothing)
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{8}, a) &= \delta^{*}_{\epsilon}(q_{8}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{8}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{8}, a))\\
+						&= Cl_{\epsilon}(\varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{8}, b) &= \delta^{*}_{\epsilon}(q_{8}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{8}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{8}, b))\\
+						&= Cl_{\epsilon}(\{q_{10}\})\\
+						&= \{q_{10}\}
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{9}, a) &= \delta^{*}_{\epsilon}(q_{9}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{9}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{9}, a) 
+						\cup \delta_{\epsilon}(q_{10}, a))\\
+						&= Cl_{\epsilon}(\varnothing \cup \varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{9}, b) &= \delta^{*}_{\epsilon}(q_{9}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{9}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{9}, b) 
+						\cup \delta_{\epsilon}(q_{10}, b))\\
+						&= Cl_{\epsilon}(\varnothing \cup \varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{10}, a) &= \delta^{*}_{\epsilon}(q_{10}, a) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{10}, \epsilon)}
+						{\delta_{\epsilon}(p, a)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{10}, a))\\
+						&= Cl_{\epsilon}(\varnothing)\\
+						&= \varnothing
+					\end{align*}
+
+					\begin{align*}
+						\delta(q_{10}, b) &= \delta^{*}_{\epsilon}(q_{10}, b) \\
+						&= Cl_{\epsilon}(\bigcup_{p \in \delta_{\epsilon}(q_{10}, \epsilon)}
+						{\delta_{\epsilon}(p, b)}) \\
+						&= Cl_{\epsilon}(\delta_{\epsilon}(q_{10}, b))\\
+						&= Cl_{\epsilon}(\varnothing)\\
+						&= \varnothing
 					\end{align*}
 
 				}
