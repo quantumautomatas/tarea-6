@@ -82,28 +82,73 @@
     		Autómata 2
     		\begin{figure} [H]
     			\centering
-    			\begin{tikzpicture}[auto]
-    			% estados
-    			\node [state, initial] (q0) {$q_{0}$};
-    			\node [state] (q1) [right=of q0] {$q_{1}$};
-    			\node [state] (q2) [below left=of q1] {$q_{2}$};
-    			\node [state] (q3) [below right=of q1] {$q_{3}$};
-    			\node [state] (q4) [below=of q0] {$q_{4}$};
-    			\node [state] (q5) [below left=of q2] {$q_{5}$};
-    			\node [state] (q6) [below right=of q2] {$q_{6}$};
-    			\node [state] (q7) [below=of q4] {$q_{7}$};
-    			\node [state] (q8) [below left=of q6] {$q_{8}$};
-    			\node [state] (q9) [below=of q7] {$q_{9}$};
-    			\node [state, accepting] (q10) [right=of q9] {$q_{10}$};
-    			
-    			% transiciones
-    			\path[->]
-    			(q0) edge node {$a$} (q4)
-    			(q4) edge node {$b$} (q7)
-    			(q7) edge node {$a$} (q9)
-    		
-;
-    			\end{tikzpicture}
+    				\begin{tikzpicture}[scale=0.2]
+    				\tikzstyle{every node}+=[inner sep=0pt]
+    				\draw [black] (12.3,-11.4) circle (3);
+    				\draw (12.3,-11.4) node {$qo$};
+    				\draw [black] (12.3,-23.1) circle (3);
+    				\draw (12.3,-23.1) node {$q4$};
+    				\draw [black] (12.3,-36.7) circle (3);
+    				\draw (12.3,-36.7) node {$q7$};
+    				\draw [black] (12.3,-50.6) circle (3);
+    				\draw (12.3,-50.6) node {$q9$};
+    				\draw [black] (44.3,-11.4) circle (3);
+    				\draw (44.3,-11.4) node {$q1$};
+    				\draw [black] (52.3,-19) circle (3);
+    				\draw (52.3,-19) node {$q3$};
+    				\draw [black] (36.6,-20.3) circle (3);
+    				\draw (36.6,-20.3) node {$q2$};
+    				\draw [black] (30,-28.5) circle (3);
+    				\draw (30,-28.5) node {$q5$};
+    				\draw [black] (45.7,-28.5) circle (3);
+    				\draw (45.7,-28.5) node {$q6$};
+    				\draw [black] (45.7,-40.3) circle (3);
+    				\draw (45.7,-40.3) node {$q8$};
+    				\draw [black] (45.7,-50.6) circle (3);
+    				\draw (45.7,-50.6) node {$q10$};
+    				\draw [black] (45.7,-50.6) circle (2.4);
+    				\draw [black] (12.3,-39.7) -- (12.3,-47.6);
+    				\fill [black] (12.3,-47.6) -- (12.8,-46.8) -- (11.8,-46.8);
+    				\draw (11.8,-43.65) node [left] {$a$};
+    				\draw [black] (34.72,-22.64) -- (31.88,-26.16);
+    				\fill [black] (31.88,-26.16) -- (32.77,-25.85) -- (31.99,-25.23);
+    				\draw (32.74,-22.97) node [left] {$\epsilon$};
+    				\draw [black] (42.34,-13.67) -- (38.56,-18.03);
+    				\fill [black] (38.56,-18.03) -- (39.46,-17.75) -- (38.71,-17.1);
+    				\draw (39.9,-14.4) node [left] {$a$};
+    				\draw [black] (46.47,-13.47) -- (50.13,-16.93);
+    				\fill [black] (50.13,-16.93) -- (49.89,-16.02) -- (49.2,-16.75);
+    				\draw (49.42,-14.72) node [above] {$a$};
+    				\draw [black] (33,-28.5) -- (42.7,-28.5);
+    				\fill [black] (42.7,-28.5) -- (41.9,-28) -- (41.9,-29);
+    				\draw (37.85,-28) node [above] {$\epsilon$};
+    				\draw [black] (38.83,-22.31) -- (43.47,-26.49);
+    				\fill [black] (43.47,-26.49) -- (43.21,-25.58) -- (42.54,-26.33);
+    				\draw (42.16,-23.91) node [above] {$\epsilon$};
+    				\draw [black] (15.3,-50.6) -- (42.7,-50.6);
+    				\fill [black] (42.7,-50.6) -- (41.9,-50.1) -- (41.9,-51.1);
+    				\draw (29,-50.1) node [above] {$\epsilon$};
+    				\draw [black] (4,-11.4) -- (9.3,-11.4);
+    				\fill [black] (9.3,-11.4) -- (8.5,-10.9) -- (8.5,-11.9);
+    				\draw [black] (45.7,-31.5) -- (45.7,-37.3);
+    				\fill [black] (45.7,-37.3) -- (46.2,-36.5) -- (45.2,-36.5);
+    				\draw (46.2,-34.4) node [right] {$b$};
+    				\draw [black] (15.3,-11.4) -- (41.3,-11.4);
+    				\fill [black] (41.3,-11.4) -- (40.5,-10.9) -- (40.5,-11.9);
+    				\draw (28.3,-10.9) node [above] {$b$};
+    				\draw [black] (12.3,-26.1) -- (12.3,-33.7);
+    				\fill [black] (12.3,-33.7) -- (12.8,-32.9) -- (11.8,-32.9);
+    				\draw (11.8,-29.9) node [left] {$b$};
+    				\draw [black] (14.46,-13.48) -- (27.84,-26.42);
+    				\fill [black] (27.84,-26.42) -- (27.61,-25.5) -- (26.92,-26.22);
+    				\draw (22.17,-19.47) node [above] {$\epsilon$};
+    				\draw [black] (12.3,-14.4) -- (12.3,-20.1);
+    				\fill [black] (12.3,-20.1) -- (12.8,-19.3) -- (11.8,-19.3);
+    				\draw (11.8,-17.25) node [left] {$a$};
+    				\draw [black] (45.7,-43.3) -- (45.7,-47.6);
+    				\fill [black] (45.7,-47.6) -- (46.2,-46.8) -- (45.2,-46.8);
+    				\draw (46.2,-45.45) node [right] {$b$};
+    				\end{tikzpicture}
     		\end{figure}
     	}
     
